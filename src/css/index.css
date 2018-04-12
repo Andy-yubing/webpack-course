@@ -1,0 +1,9 @@
+body{
+    background-color: #ccc;
+    color: white;
+}
+#tupian{
+   background-image: url("../images/andy.jpg");
+   width:200px;
+   height:200px;
+}
