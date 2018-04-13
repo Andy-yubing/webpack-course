@@ -2,4 +2,4 @@
 /*!***********************!*\
   !*** ./src/entry2.js ***!
   \***********************/
-/*! no static exports found */function(module,exports){eval("document.getElementById('title').style.color='red';\n\n//# sourceURL=webpack:///./src/entry2.js?")}});
+/*! no static exports found */function(module,exports,__webpack_require__){"use strict";eval("\n\ndocument.getElementById('title').style.color = 'red';\n\n//# sourceURL=webpack:///./src/entry2.js?")}});

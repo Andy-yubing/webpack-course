@@ -5,6 +5,7 @@ const extractTextPlugin = require("extract-text-webpack-plugin");
 
 console.log("_________"+path.resolve(__dirname,'dist'));
 module.exports={
+    devtool: 'eval-source-map',
     mode: 'development',
     //context: path.resolve(__dirname, './src'),
     //入口文件的配置项
@@ -41,13 +42,26 @@ module.exports={
             },
             {
                 test: /\.less$/,
-                use: [{
-                       loader: "style-loader" // creates style nodes from JS strings
-                    }, {
-                        loader: "css-loader" // translates CSS into CommonJS
-                    }, {
-                        loader: "less-loader" // compiles Less to CSS
-                    }]
+                use: extractTextPlugin.extract({
+                        use: [{
+                            loader: "css-loader"
+                        }, {
+                            loader: "less-loader"
+                        }],
+                        // use style-loader in development
+                        fallback: "style-loader"
+                    })
+            },
+            {
+                test: /\.(htm|html)$/i,
+                use:[ 'html-withimg-loader'] 
+            },
+            {
+                test:/\.(jsx|js)$/,
+                use:{
+                    loader:'babel-loader',
+                },
+                exclude:/node_modules/
             }
         ]
     },
